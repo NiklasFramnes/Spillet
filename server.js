@@ -486,6 +486,6 @@ function getRoomIndex(id){
     return Number(user.room.charAt(user.room.length -1)) - 1;
 }
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 10000;
 
 server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
