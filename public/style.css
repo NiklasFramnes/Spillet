@@ -1,0 +1,210 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    background-color: #f4f4f4;
+    height: 100vh;
+  }
+
+  #game-board {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  #center-cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .black-card {
+    width: 200px;
+    height: 300px;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  }
+
+  .reply-cards {
+    gap: 100px;
+  }
+
+  .white-card {
+    width: 150px;
+    height: 200px;
+    background-color: white;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1em;
+    text-align: center;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow-wrap: break-word; /* Ensures wrapping for overly long words */
+  }
+
+  .reply-card {
+    width: 150px;
+    height: 200px;
+    background-color: white;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1em;
+    text-align: center;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow-wrap: break-word; /* Ensures wrapping for overly long words */
+  }
+
+  #player-hand {
+    display: flex;
+    gap: 10px;
+  }
+
+  .hand-card {
+    width: 150px;
+    height: 200px;
+    background-color: white;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9em;
+    text-align: center;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth color transition */
+  }
+
+  .hand-card:hover {
+    background-color: #d9d9d9; /* Light gray when hovered */
+  }
+
+  .hand-card.selected {
+    background-color: #a6a6a6; /* Dark gray when selected */
+  }
+
+  .black-card, .white-card, .hand-card {
+    overflow-wrap: break-word; /* Break long words if necessary */
+    word-wrap: break-word;     /* Ensure compatibility with older browsers */
+    overflow: hidden;          /* Hide anything beyond the card's dimensions */
+    display: flex;             /* Use flexbox to align text properly */
+    justify-content: center;   /* Center text horizontally */
+    align-items: center;       /* Center text vertically */
+    padding: 10px;             /* Add padding to prevent text from touching edges */
+    box-sizing: border-box;    /* Include padding in width/height calculation */
+    text-align: center;        /* Center-align text */
+  }
+
+  #submit-button {
+    width: 80px;
+    height: 60px;
+    display: "flex";
+    overflow-wrap: break-word; 
+    word-wrap: break-word;     
+    overflow: hidden;          
+    display: flex;             
+    justify-content: center;   
+    align-items: center;       
+    padding: 10px;             
+    box-sizing: border-box; 
+    text-align: center;
+  }
+
+  #trash-button {
+    width: 80px;
+    height: 60px;
+    display: "flex";
+    overflow-wrap: break-word; 
+    word-wrap: break-word;     
+    overflow: hidden;          
+    display: flex;             
+    justify-content: center;   
+    align-items: center;       
+    padding: 10px;             
+    box-sizing: border-box; 
+    text-align: center;
+    font-weight: bolder;
+    position: fixed;
+    bottom: 150px; /* Distance from the bottom of the screen */
+    left: 150px;   /* Distance from the left of the screen */
+  }
+
+  .vote-button {
+    width: 80px;
+    height: 30px;
+    margin-bottom: 10px;
+    margin-left: 35px;
+    display: "flex";
+    overflow-wrap: break-word; 
+    word-wrap: break-word;     
+    overflow: hidden;          
+    display: flex;             
+    justify-content: center;   
+    align-items: center;       
+    padding: 10px;             
+    box-sizing: border-box; 
+    text-align: center;
+  }
+
+  .new-game-button {
+    width: 200px;
+    height: 80px;
+    margin-bottom: 10px;
+    margin-left: 35px;
+    display: "flex";
+    overflow-wrap: break-word; 
+    word-wrap: break-word;     
+    overflow: hidden;          
+    justify-content: center;   
+    align-items: center;       
+    padding: 10px;             
+    box-sizing: border-box; 
+    text-align: center;
+  }
+
+  #point-goal {
+    position: fixed; /* Fixes the element at a specific position relative to the viewport */
+    top: 0;          /* Moves the element to the top of the viewport */
+    left: 50%;         /* Aligns the element to the left edge of the viewport */
+    width: 100%;     /* Optional: Makes the element span the full width of the screen */
+    text-align: center; /* Optional: Centers the text horizontally */
+    
+  }
+
+#next-card-button {
+  width: 200px;
+  height: 80px;
+  position: fixed;
+  bottom: 20px; /* Distance from the bottom of the screen */
+  left: 50%;    /* Center horizontally relative to the screen */
+  transform: translateX(-50%); /* Adjust to truly center */
+  overflow-wrap: break-word; 
+  word-wrap: break-word;     
+  overflow: hidden;          
+  justify-content: center;   
+  align-items: center;       
+  padding: 10px;             
+  box-sizing: border-box; 
+  text-align: center;
+}

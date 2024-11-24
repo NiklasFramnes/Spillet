@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spillet</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <p>In this room:</p>
+    <ul id="users">
+      <li id="u1">Håkon</li>
+      <li id="u2">Kjell</li>
+      <li id="u3">Per</li>
+      <li id="u4">Arne</li>
+      <li id="u5">Anders</li>
+      <li id="u6">Marcus</li>
+    </ul>
+    <button id="ready-button" class="vote-button" onclick="toggleReady()">
+      Ready
+    </button>
+    <div id="room-leader-settings">
+      <b>Game Settings</b>
+      <p>Enter amount of points needed for a win: (20 is default)</p>
+      <input
+        type="text"
+        id="points-to-win"
+        placeholder="Enter a number (min 1)"
+        min="1"
+        oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/^0+/, '');"
+      />
+      <br />
+      <br />
+      <br />
+      <label>
+        <input
+          type="checkbox"
+          id="fill-with-bots"
+          name="fill-with-bots"
+          value="agree"
+        />
+        Fill room with bots?
+      </label>
+    </div>
+    <div id="game-board">
+      <div id="center-cards">
+        <div class="black-card">Kong Harald elsker ___</div>
+      </div>
+      <div id="player-hand">
+        <div class="selection-order" id="order0"></div>
+        <div id="0" class="hand-card"></div>
+        <div class="selection-order" id="order1"></div>
+        <div id="1" class="hand-card"></div>
+        <div class="selection-order" id="order2"></div>
+        <div id="2" class="hand-card"></div>
+        <div class="selection-order" id="order3"></div>
+        <div id="3" class="hand-card"></div>
+        <div class="selection-order" id="order4"></div>
+        <div id="4" class="hand-card"></div>
+        <div class="selection-order" id="order5"></div>
+        <div id="5" class="hand-card"></div>
+        <div class="selection-order" id="order6"></div>
+        <div id="6" class="hand-card"></div>
+      </div>
+      <button id="submit-button" onclick="submitCards()">Submit</button>
+      <button id="trash-button" onclick="toggleTrash()">Trash</button>
+      <div id="reply-cards" class="reply-cards">
+        <div id="player1-replies">
+          <button class="vote-button" id="vote-button1" onclick="vote(0)">
+            Vote
+          </button>
+          <p id="player-name1"></p>
+        </div>
+        <div id="player2-replies">
+          <button class="vote-button" id="vote-button2" onclick="vote(1)">
+            Vote
+          </button>
+          <p id="player-name2"></p>
+        </div>
+        <div id="player3-replies">
+          <button class="vote-button" id="vote-button3" onclick="vote(2)">
+            Vote
+          </button>
+          <p id="player-name3"></p>
+        </div>
+        <div id="player4-replies">
+          <button class="vote-button" id="vote-button4" onclick="vote(3)">
+            Vote
+          </button>
+          <p id="player-name4"></p>
+        </div>
+        <div id="player5-replies">
+          <button class="vote-button" id="vote-button5" onclick="vote(4)">
+            Vote
+          </button>
+          <p id="player-name5"></p>
+        </div>
+        <div id="player6-replies">
+          <button class="vote-button" id="vote-button6" onclick="vote(5)">
+            Vote
+          </button>
+          <p id="player-name6"></p>
+        </div>
+        <button id="next-round-button" onclick="readyForNextRound()">
+          Next round
+        </button>
+      </div>
+      <button id="next-card-button" onclick="nextCard()">
+        You are this turn's reader. Click here to read next card
+      </button>
+    </div>
+    <br />
+    <br />
+    <button class="new-game-button" onclick="startNewGameButton()">
+      Start New Game
+    </button>
+    <p id="waiting-text">Waiting for room leader to start new game...</p>
+    <p id="point-goal"></p>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.13.1/qs.min.js"
+      integrity="sha512-dOI8+lI91wsLJEMBQcZBvatYrawv84SrgkRF/6sIcjhYXgANOvOEkBtCSf/ZkdZ7Mw0u+VUxDgalDZA1qKWTFQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="spillet.js"></script>
+  </body>
+</html>
