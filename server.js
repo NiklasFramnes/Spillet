@@ -108,7 +108,19 @@ const whiteCards = ["Å smekke på deg langbukse",
                      "Ti tusen snus",
                      "Å banke kona",
                      "Kona mi, som jeg banket",
-                     "Å hete leif"
+                     "Å hete leif",
+                     "Mange nye chics på liggelista mi",
+                     "Verdens eldste mann",
+                     "Hjerte-og-karsykdommer",
+                     "Å få hjerteinnfarkt og slag og dø",
+                     "Artur Wiltersen",
+                     "Hans Olav Lahlum",
+                     "Hesten",
+                     "Hestepølse",
+                     "Katta",
+                     "Å blæste en kar midt i blinken, dama er stygg uten sminken",
+                     "Gaming",
+                     ""
 ];
 
   const blackCards = [ { text: "Hva er den lyden?", replies: 1 },
@@ -130,6 +142,10 @@ const whiteCards = ["Å smekke på deg langbukse",
     { text: "Kvinner av Norge har stemt på hva de synes er de mest attraktive hobbyene en mann kan ha. Hobbyen med flest stemmer var ___", replies: 1},
     { text: "Harry Potter og ___-kammeret", replies: 1},
     { text: "I dag skal vi snakke om holdt på å si ___", replies: 1},
+    { text: "Bjørnstjerne Bjørnsons første vise: ___ over grønne åser", replies: 1},
+    { text: "30% mindre fett! Prøv den nye super-chipsen med smak av ___!", replies: 1},
+    { text: "Treningsopplegg: 4 sets med markløft, 3 sets med benkpress og 3 sets med ___", replies: 1},
+    { text: "De gangene jeg går tom for røyk, blir det ___ istedet", replies: 1}
 
 ];
 

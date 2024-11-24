@@ -208,3 +208,9 @@ body {
   box-sizing: border-box; 
   text-align: center;
 }
+
+#version-text {
+  position: fixed;
+  bottom: 5px;
+  left: 97%;
+}
