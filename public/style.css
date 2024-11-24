@@ -146,8 +146,8 @@ body {
     text-align: center;
     font-weight: bolder;
     position: fixed;
-    bottom: 150px; /* Distance from the bottom of the screen */
-    left: 150px;   /* Distance from the left of the screen */
+    bottom: 2%; /* Distance from the bottom of the screen */
+    left: 2%;   /* Distance from the left of the screen */
   }
 
   .vote-button {
@@ -160,6 +160,23 @@ body {
     word-wrap: break-word;     
     overflow: hidden;          
     display: flex;             
+    justify-content: center;   
+    align-items: center;       
+    padding: 10px;             
+    box-sizing: border-box; 
+    text-align: center;
+  }
+
+  #next-round-button {
+    width: 200px;
+    height: 80px;
+    position: fixed;
+    left: 50%;
+    bottom: 2%;
+    display: "flex";
+    overflow-wrap: break-word; 
+    word-wrap: break-word;     
+    overflow: hidden;          
     justify-content: center;   
     align-items: center;       
     padding: 10px;             

@@ -120,7 +120,20 @@ const whiteCards = ["Å smekke på deg langbukse",
                      "Katta",
                      "Å blæste en kar midt i blinken, dama er stygg uten sminken",
                      "Gaming",
-                     ""
+                     "Å tørre, og å påstå",
+                     "Å være jo-jo-jo-jo-jovial",
+                     "Kreft",
+                     "Å bli flådd levende",
+                     "11. September 2001",
+                     "Å være så hjerneskada at man sikler",
+                     "Downs",
+                     "Å være i bevegelse så det ikke oppstår blodpropper i årene",
+                     "Å skru av babyen",
+                     "Å hinke",
+                     "En integrert oppgaveløsning, hvor det tas høyde for vilkårene som en følge av visjonen",
+                     "Å ikke drepe masse folk",
+                     "Bremsespor"
+
 ];
 
   const blackCards = [ { text: "Hva er den lyden?", replies: 1 },
@@ -139,14 +152,18 @@ const whiteCards = ["Å smekke på deg langbukse",
     { text: "Det nye lovende partiet på stortinget, ___-partiet, er det eneste partiet som endelig har tatt for seg ___.", replies: 2},
     { text: "De gamle egypterne er kjent for å ha bygget pyramidene. Lite kjent er det at de også holdt på med ___.", replies: 1 },
     { text: "Topp 3 årets russekonsept: 3. plass:___ 2024, 2. plass ___ 2024, og vinneren var ___2024", replies: 3},
-    { text: "Kvinner av Norge har stemt på hva de synes er de mest attraktive hobbyene en mann kan ha. Hobbyen med flest stemmer var ___", replies: 1},
+    { text: "Kvinner av Norge har stemt på hva de synes er de mest attraktive hobbyene en mann kan ha. Hobbyen med flest stemmer var ___.", replies: 1},
     { text: "Harry Potter og ___-kammeret", replies: 1},
     { text: "I dag skal vi snakke om holdt på å si ___", replies: 1},
     { text: "Bjørnstjerne Bjørnsons første vise: ___ over grønne åser", replies: 1},
     { text: "30% mindre fett! Prøv den nye super-chipsen med smak av ___!", replies: 1},
-    { text: "Treningsopplegg: 4 sets med markløft, 3 sets med benkpress og 3 sets med ___", replies: 1},
-    { text: "De gangene jeg går tom for røyk, blir det ___ istedet", replies: 1}
-
+    { text: "Treningsopplegg: 4 sets med markløft, 3 sets med benkpress og 3 sets med ___.", replies: 1},
+    { text: "De gangene jeg går tom for røyk, blir det ___ istedet", replies: 1},
+    { text: "Terrorangrepet på utøya i 2011 var det mest beryktede i Norge fram til 5. april 2026. Dette angrepet ville bli kjent som ___ angrepet.", replies: 1},
+    { text: "Unnskyld meg mine herrer, jeg har en date med ___.", replies: 1},
+    { text: "Jeg er streng på morningsrutinen min. Først dusjer jeg, så spiser jeg frokost, så ___", replies: 1},
+    { text: "Tidligere trodde vi det var et isberg som sank Titanic. Ny forskning viser at det egentlig var ___.", replies: 1},
+    { text: "Lars Monsen må overleve i villmarken med bare sine ferdigheter og ___ som hjelpemiddel.", replies: 1}
 ];
 
 let whiteCardDecks = Array(6).fill().map(() => [...whiteCards]);
@@ -282,8 +299,10 @@ io.on('connection', socket=> {
     });
 
     socket.on('requestDrawCard', (id) =>{
-        const thisUser = getCurrentUser(id);
+        const thisUser = getCurrentUser(id);    
         const deckIndex = getRoomIndex(id);
+        // If few cards left, refill the deck
+        if (whiteCardDecks[deckIndex].length < 30) whiteCardDecks[deckIndex] = [...whiteCards];
         io.to(thisUser.id).emit('drawCard', whiteCardDecks[deckIndex].pop());
     });
 
@@ -391,6 +410,11 @@ io.on('connection', socket=> {
             voteCounter[getRoomIndex(id)] = [0, 0, 0, 0, 0, 0];
 
             const blackCard = blackCardDecks[getRoomIndex(id)].pop();
+
+            // If few cards left, refill deck
+            if (blackCardDecks[getRoomIndex(id)].length < 3) {
+                blackCardDecks[getRoomIndex(id)] = [...blackCards];
+            }
 
             io.emit('nextTurn', blackCard);
         }
