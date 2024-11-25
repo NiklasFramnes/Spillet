@@ -145,8 +145,9 @@ const whiteCards = ["Å smekke på deg langbukse",
                      "Å brekke beinet",
                      "Å ikke helt slå på stortromma",
                      "At størrelse har ingenting å si, men hvordan man bruker den",
-                     "Alt for mye"
-
+                     "Alt for mye",
+                     "Skylanders",
+                     "Å være slem"
 
 ];
 
