@@ -294,7 +294,32 @@ io.on('connection', socket=> {
             });
 
             // Set first reading player
-            users[0].isReading = true;
+            users[users.length - 1].isReading = true;
+
+            // Set next reading player
+            let readerIndex;
+            users.forEach((user, index) =>{
+                if (user.isReading) {
+                    user.isReading = false;
+                    readerIndex = index;
+                }
+            });
+
+            while(!users[readerIndex].isReading) {
+                readerIndex ++;
+                if (readerIndex > users.length - 1) readerIndex = 0;
+                if (!users[readerIndex].id.startsWith('bot')){
+                    users[readerIndex].isReading = true;
+                }
+            }
+
+            // Send users and room info
+            io.to(thisUser.room).emit('roomUsers', {
+                room: thisUser.room,
+                users: getRoomUsers(thisUser.room)
+            });
+
+            io.to(users[readerIndex].id).emit('isReading');
         }
 
         // Send users and room info
@@ -341,30 +366,7 @@ io.on('connection', socket=> {
             // Shuffle replies so that you can't tell who played what
             shuffle(roomReplies[getRoomIndex(id)]);
 
-            // Set next reading player
-            let readerIndex;
-            users.forEach((user, index) =>{
-                if (user.isReading) {
-                    user.isReading = false;
-                    readerIndex = index;
-                }
-            });
-
-            while(!users[readerIndex].isReading) {
-                readerIndex ++;
-                if (readerIndex > users.length - 1) readerIndex = 0;
-                if (!users[readerIndex].id.startsWith('bot')){
-                    users[readerIndex].isReading = true;
-                }
-            }
-
-            // Send users and room info
-            io.to(thisUser.room).emit('roomUsers', {
-                room: thisUser.room,
-                users: getRoomUsers(thisUser.room)
-            });
-
-            io.to(users[readerIndex].id).emit('isReading');
+            
 
             io.to(thisUser.room).emit('revealReplies', roomReplies[getRoomIndex(id)]);
         }
@@ -428,6 +430,31 @@ io.on('connection', socket=> {
             if (blackCardDecks[getRoomIndex(id)].length < 3) {
                 blackCardDecks[getRoomIndex(id)] = [...blackCards];
             }
+
+            // Set next reading player
+            let readerIndex;
+            users.forEach((user, index) =>{
+                if (user.isReading) {
+                    user.isReading = false;
+                    readerIndex = index;
+                }
+            });
+
+            while(!users[readerIndex].isReading) {
+                readerIndex ++;
+                if (readerIndex > users.length - 1) readerIndex = 0;
+                if (!users[readerIndex].id.startsWith('bot')){
+                    users[readerIndex].isReading = true;
+                }
+            }
+
+            // Send users and room info
+            io.to(thisUser.room).emit('roomUsers', {
+                room: thisUser.room,
+                users: getRoomUsers(thisUser.room)
+            });
+
+            io.to(users[readerIndex].id).emit('isReading');
 
             io.emit('nextTurn', blackCard);
         }
