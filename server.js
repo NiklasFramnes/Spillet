@@ -150,6 +150,8 @@ const whiteCards = ["Å smekke på deg langbukse",
 
 ];
 
+//fitte
+
 //på
   const blackCards = [ { text: "Hva er den lyden?", replies: 1 },
     { text: "Kong Harald elsker ___.", replies: 1 },
