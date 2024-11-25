@@ -132,7 +132,20 @@ const whiteCards = ["Å smekke på deg langbukse",
                      "Å hinke",
                      "En integrert oppgaveløsning, hvor det tas høyde for vilkårene som en følge av visjonen",
                      "Å ikke drepe masse folk",
-                     "Bremsespor"
+                     "Bremsespor",
+                     "HIV, snart AIDS",
+                     "Himkok",
+                     "Tits",
+                     "Å bare kjenne litt på'n",
+                     "Smegma",
+                     "Auschwitz",
+                     "Rundkjøringa på Aursmoen",
+                     "Å hive innpå et par blingser",
+                     "Mye fett, spesielt rundt midjen",
+                     "Å brekke beinet",
+                     "Å ikke helt slå på stortromma",
+                     "At størrelse har ingenting å si, men hvordan man bruker den"
+
 
 ];
 

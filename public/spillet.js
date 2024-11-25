@@ -211,6 +211,12 @@ function startGame(){
         card.addEventListener('click', cardClicked);
       });
 
+    // Reset trash button
+    document.getElementById('trash-button').style.display = 'flex';
+    isTrashing = false;
+    trashedCardIndex = -1;
+
+
     document.getElementById('reply-cards').style.display = "none";
     document.getElementById('ready-button').style.display = "none";
 }
