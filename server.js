@@ -144,11 +144,13 @@ const whiteCards = ["Å smekke på deg langbukse",
                      "Mye fett, spesielt rundt midjen",
                      "Å brekke beinet",
                      "Å ikke helt slå på stortromma",
-                     "At størrelse har ingenting å si, men hvordan man bruker den"
+                     "At størrelse har ingenting å si, men hvordan man bruker den",
+                     "Alt for mye"
 
 
 ];
 
+//på
   const blackCards = [ { text: "Hva er den lyden?", replies: 1 },
     { text: "Kong Harald elsker ___.", replies: 1 },
     { text: "Penger kan ikke kjøpe meg kjærlighet, men det kan kjøpe meg ___.", replies: 1 },
