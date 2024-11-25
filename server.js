@@ -456,6 +456,7 @@ io.on('connection', socket=> {
 
             io.to(users[readerIndex].id).emit('isReading');
 
+            // tst
             io.emit('nextTurn', blackCard);
         }
     });
