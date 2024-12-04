@@ -1,4 +1,5 @@
-Dette er en norsk versjon av spillet Cards Against Humanity. 
+(ADVARSEL: Stygt språk i dette spillet)
+Dette er en norsk versjon av spillet Cards Against Humanity.
 Det kan spilles online på https://spillet.onrender.com
 Spillet er hostet gratis igjennom render.com, så serveren er treig.
 Kjører på en express server med socket.io
